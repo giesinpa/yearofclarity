@@ -1,4 +1,4 @@
-@import './styles.css';
+@import './styles.css?v=2';
 
 body {
   -webkit-font-smoothing: antialiased;
