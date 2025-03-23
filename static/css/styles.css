@@ -10,13 +10,8 @@
   background-color: #f5f5f5 !important;
 }
 
-/* Hide Daily from the title */
-h1:first-child {
-  font-size: 2rem !important;
-}
-
-h1:first-child::first-word,
-h1:first-child span:first-child {
+/* Hide Daily Quote Generator title */
+h1, h2, h3, h4, h5, h6 {
   display: none !important;
 }
 
@@ -32,18 +27,19 @@ h1:first-child span:first-child {
 }
 
 /* Quote author styles */
-#root .quote-author {
-  font-size: 1.2rem !important;
-  color: #666 !important;
-  font-style: italic !important;
-  margin-bottom: 2rem !important;
+#root .quote-author,
+#root [class*="author"],
+#root [class*="attribution"] {
+  display: none !important;
 }
 
-/* Hide the Day text */
-#root .quote-author::before,
-#root .quote-author em,
-#root .quote-author span {
-  display: none !important;
+/* Hide any Day text */
+*:not(script):not(style) {
+  content: "" !important;
+}
+
+*:not(script):not(style)::after {
+  content: none !important;
 }
 
 /* Amazon button styles */
@@ -73,7 +69,18 @@ h1:first-child span:first-child {
   box-shadow: 0 6px 8px rgba(0,0,0,0.2) !important;
 }
 
-/* Hide any elements containing just the text "Day" */
-*:not(script):not(style):contains('Day') {
+/* Additional selectors to hide Day text */
+[class*="day"],
+[class*="Day"],
+em:contains("Day"),
+span:contains("Day"),
+*:contains("— Day") {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
 } 
