@@ -83,4 +83,19 @@ span:contains("Day"),
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
+}
+
+/* Hide explore text */
+p:last-child,
+div:last-child > p,
+*:contains("Explore 50 quotes"),
+*:contains("Get all 365") {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
 } 
