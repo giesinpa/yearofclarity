@@ -69,12 +69,24 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 6px 8px rgba(0,0,0,0.2) !important;
 }
 
-/* Additional selectors to hide Day text */
-[class*="day"],
-[class*="Day"],
-em:contains("Day"),
-span:contains("Day"),
-*:contains("— Day") {
+/* Hide explore text */
+p,
+div > p:last-child,
+*:contains("Explore"),
+*:contains("explore"),
+*:contains("quotes"),
+*:contains("book"),
+*:contains("365"),
+*:contains("50"),
+div:last-child p,
+.quote-container > *:last-child,
+.quote-container > div:last-child,
+.quote-container > p:last-child,
+div[class*="footer"],
+div[class*="bottom"],
+div[class*="text"],
+p[class*="text"],
+span[class*="text"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
@@ -83,13 +95,32 @@ span:contains("Day"),
   margin: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
 }
 
-/* Hide explore text */
-p:last-child,
-div:last-child > p,
-*:contains("Explore 50 quotes"),
-*:contains("Get all 365") {
+/* Show only quote and button */
+#root .quote-container > *:not(.quote-text):not(a):not(button) {
+  display: none !important;
+}
+
+/* Additional cleanup */
+.quote-container::after,
+.quote-container::before,
+.quote-container > *::after,
+.quote-container > *::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Additional selectors to hide Day text */
+[class*="day"],
+[class*="Day"],
+em:contains("Day"),
+span:contains("Day"),
+*:contains("— Day") {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
